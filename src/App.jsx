@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Button from './Components/forms/button';
+import addImage from './assets/add-folder-svgrepo-com.svg'
+import deleteImage from './assets/delete-1487-svgrepo-com.svg'
 
 function App() {
   const [task, setTask] = useState('');
@@ -25,19 +27,20 @@ function App() {
   return (
     <>
       <h1>Todo App</h1>
+     
 
       <input
         placeholder="Enter task"
         value={task}
         onChange={handleChange}
       />
-      <Button title="ADD" handler={addTask} />
-
+      <Button  handler={addTask} addSrc={addImage}/>
+     {/* <img src={demoImage} width={'20px'} /> */}
       <ul>
         {list.map((task, index) => (
           <li key={index}>
             {task}
-            <Button title="delete" handler={() => deleteTask(index)} />
+            <Button handler={() => deleteTask(index)} deleteSrc={deleteImage} />
           </li>
         ))}
       </ul>
